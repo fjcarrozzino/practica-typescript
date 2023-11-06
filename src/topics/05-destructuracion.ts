@@ -38,7 +38,7 @@ const [ , , trunks]: string[] = ['goku', 'vegeta', 'Trunks']
 
 //Destructuracion de argumentos
 
-interface Products {
+export interface Products {
     description: string;
     price: number;
 }
@@ -53,18 +53,18 @@ const tablet: Products = {
     price: 250.0
 }
 
-const shoppingCart = [phone, tablet]
-const tax = 0.15
+const shoppingCarts = [phone, tablet]
+export const tax = 0.15
 
 
-console.log(shoppingCart)
+console.log(shoppingCarts)
 
 interface TaxCalculationsOptions {
     tax: number;
     products: Products[];
 }
 
-const taxCalculation = ( options: TaxCalculationsOptions): [number, number] => {
+export const taxCalculation = ( options: TaxCalculationsOptions): [number, number] => {
 
     const { tax, products } = options
     let total = 0
@@ -76,9 +76,11 @@ const taxCalculation = ( options: TaxCalculationsOptions): [number, number] => {
 }
 
 const [total, totalTax] = taxCalculation({
-    products: shoppingCart,
+    products: shoppingCarts,
     tax
 })
 
 console.log('Total', total)
 console.log('Tax', totalTax)
+
+export {}
